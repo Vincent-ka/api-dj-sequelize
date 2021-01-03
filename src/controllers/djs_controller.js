@@ -1,32 +1,33 @@
 const { pick } = require("lodash");
 
-// const { Dj, Musicalgenre, DjMusicalgenre } = require("../models");
+const { Djs, Musicalgenres, DjMusicalgenres } = require("../../models");
 const { NotFoundError } = require("../helpers/errors");
 
 const djsController = {
   getAllDjs: async () => {
-    // Your code here
-    return {};
+    const djsFound = await Djs.findAll();
+    console.log(djsFound)
+    return djsFound;
   },
 
   getDj: async (name) => {
-    // Your code here
-    return {};
+    const djFound = await Djs.findOne(name);
+    return {djFound};
   },
 
   addDj: async (data) => {
-    // Your code here
-    return {};
+    const djCreated = await Djs.create(data);
+    return djCreated
   },
 
   updateDj: async (name, data) => {
-    // Your code here
-    return {};
+    const djUpdated = await Djs.save(name);
+    return {djUpdated}
   },
 
   deleteDj: async (name) => {
-    // Your code here
-    return {};
+    const djDeleted = await Djs.destroy(name);
+    return {djDeleted}
   },
 };
 

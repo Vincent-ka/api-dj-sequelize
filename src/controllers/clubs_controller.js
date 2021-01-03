@@ -1,17 +1,18 @@
-// const { Club } = require("../models");
+const { Clubs } = require("../../models");
 
 const clubsController = {
   getAllClubs: async () => {
-    // Your code here
-    return {};
+    const clubsFound = await Clubs.findAll();
+    console.log(clubsFound)
+    return clubsFound;
   },
   getClub: async (name) => {
-    // Your code here
-    return {};
+    const clubFound = await Clubs.findOne(name);
+    return {clubFound};
   },
   addClub: async (data) => {
-    // Your code here
-    return {};
+    const clubCreated = await Clubs.create(data);
+    return clubCreated
   },
 };
 
