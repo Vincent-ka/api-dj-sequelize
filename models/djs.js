@@ -11,11 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Djs.hasOne(models.DjMusicalgenres),
       models.Djs.belongsTo(models.Clubs, {
         foreignKey: {
-          allowNull: false
+          name: 'club_id'
         }
+      });
+      models.Djs.belongsToMany(models.Musicalgenres, {
+        through: "DjMusicalgenres",
+        foreignKey: 'dj_id'
       })
     }
   };
