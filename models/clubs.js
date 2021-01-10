@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Clubs.hasOne(models.Djs)
+      models.Clubs.hasMany(models.Djs)
     }
   };
   Clubs.init({

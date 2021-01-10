@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Djs.hasMany(models.DjMusicalgenres),
+      models.Djs.hasOne(models.DjMusicalgenres),
       models.Djs.belongsTo(models.Clubs, {
         foreignKey: {
           allowNull: false

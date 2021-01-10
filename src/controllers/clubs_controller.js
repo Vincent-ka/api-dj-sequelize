@@ -7,8 +7,14 @@ const clubsController = {
     return clubsFound;
   },
   getClub: async (name) => {
-    const clubFound = await Clubs.findOne(name);
-    return {clubFound};
+    const oneClub = await Clubs.findOne({
+      where: {
+        name: name
+      }
+    })
+    return {
+      oneClub
+    };
   },
   addClub: async (data) => {
     const clubCreated = await Clubs.create(data);
