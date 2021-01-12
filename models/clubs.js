@@ -19,6 +19,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Clubs.init({
+    id: {
+      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.UUID,
+      primaryKey: true
+    },
     name: DataTypes.STRING,
   }, {
     sequelize,

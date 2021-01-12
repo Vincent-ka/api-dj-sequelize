@@ -4,9 +4,9 @@ module.exports = {
     await queryInterface.createTable('DjMusicalgenres', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        default: Sequelize.fn('uuid_generate_v4'), 
+        type: Sequelize.UUID
       },
       dj_id: {
         type: Sequelize.INTEGER,

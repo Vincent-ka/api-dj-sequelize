@@ -11,14 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.DjMusicalgenres.belongsTo(models.Djs, {
-        foreignKey: {
-          allowNull: false
-        }
-      })
+      // models.DjMusicalgenres.belongsTo(models.Djs, {
+      //   foreignKey: {
+      //     allowNull: false
+      //   }
+      // })
     }
   };
   DjMusicalgenres.init({
+    id: {
+      defaultValue: DataTypes.UUID,
+      type: DataTypes.UUID,
+      primaryKey: true
+    },
     dj_id: DataTypes.INTEGER,
     musicalgenre: DataTypes.INTEGER
   }, {

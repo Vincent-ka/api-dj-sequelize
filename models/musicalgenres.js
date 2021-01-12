@@ -12,12 +12,17 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.Musicalgenres.belongsToMany(models.Djs, {
-        foreignKey: 'musicalgenre_id',
+        foreignKey: 'musicalgenre',
         through: "DjMusicalgenres",
       })
     }
   };
   Musicalgenres.init({
+    id: {
+      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.UUID,
+      primaryKey: true
+    },
     name: DataTypes.STRING
   }, {
     sequelize,

@@ -23,6 +23,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Djs.init({
+    id: {
+      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.UUID,
+      primaryKey: true
+    },
     url_name: DataTypes.STRING,
     name: DataTypes.STRING,
     biography: DataTypes.STRING,
